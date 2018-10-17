@@ -16,6 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var debugTextView: UITextView!
     @IBOutlet weak var textOverlay: UITextField!
+    @IBOutlet weak var subtitle: UITextField!
     
     let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
     var visionRequests = [VNRequest]()
@@ -30,6 +31,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        self.subtitle.backgroundColor = UIColor.clear
         
         // Create a new scene
         let scene = SCNScene() // SCNScene(named: "art.scnassets/ship.scn")!
@@ -40,7 +42,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // --- ML & VISION ---
         
         // Setup Vision Model
-        guard let selectedModel = try? VNCoreMLModel(for: example_5s0_hand_model().model) else {
+        guard let selectedModel = try? VNCoreMLModel(for: ok_model().model) else {
             fatalError("Could not load model. Ensure model has been drag and dropped (copied) to XCode Project. Also ensure the model is part of a target (see: https://stackoverflow.com/questions/45884085/model-is-not-part-of-any-target-add-the-model-to-a-target-to-enable-generation ")
         }
         
@@ -125,7 +127,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Get Classifications
         let classifications = observations[0...2] // top 3 results
-            .flatMap({ $0 as? VNClassificationObservation })
+            .compactMap({ $0 as? VNClassificationObservation })
             .map({ "\($0.identifier) \(String(format:" : %.2f", $0.confidence))" })
             .joined(separator: "\n")
         
@@ -139,17 +141,41 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             self.debugTextView.text = "TOP 3 PROBABILITIES: \n" + classifications
             
             // Display Top Symbol
-            var symbol = "❎"
+            var symbol = ""//"❎"
+            var subtitle = ""
             let topPrediction = classifications.components(separatedBy: "\n")[0]
             let topPredictionName = topPrediction.components(separatedBy: ":")[0].trimmingCharacters(in: .whitespaces)
             // Only display a prediction if confidence is above 1%
             let topPredictionScore:Float? = Float(topPrediction.components(separatedBy: ":")[1].trimmingCharacters(in: .whitespaces))
             if (topPredictionScore != nil && topPredictionScore! > 0.01) {
-                if (topPredictionName == "fist-UB-RHand") { symbol = "👊" }
-                if (topPredictionName == "FIVE-UB-RHand") { symbol = "🖐" }
+              if (topPredictionName == "ok-right") {
+                symbol = "👌"
+                subtitle = "OK"
+              }
+              if (topPredictionName == "ok-left") {
+                symbol = "👌"
+                subtitle = "OK"
+              }
+              if (topPredictionName == "coffee") {
+                symbol = "☕"
+                subtitle = "Coffee"
+              }
+              if (topPredictionName == "sugar") {
+                symbol = "🍬"
+                subtitle = "Sugar"
+              }
+              if (topPredictionName == "black") {
+                symbol = "⚫"
+                subtitle = "Black"
+              }
+              if (topPredictionName == "white") {
+                symbol = "⚪"
+                subtitle = "White"
+              }
             }
             
             self.textOverlay.text = symbol
+            self.subtitle.text = subtitle
             
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14795042176B7EA0064F642 /* ok_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A14795032176B7EA0064F642 /* ok_model.mlmodel */; };
 		AE85734E1F9D179100D73806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85734D1F9D179100D73806 /* AppDelegate.swift */; };
 		AE8573501F9D179100D73806 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AE85734F1F9D179100D73806 /* art.scnassets */; };
 		AE8573521F9D179100D73806 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8573511F9D179100D73806 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A14795032176B7EA0064F642 /* ok_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ok_model.mlmodel; sourceTree = "<group>"; };
 		AE85734A1F9D179100D73806 /* Gesture-Recognition-101-CoreML-ARKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gesture-Recognition-101-CoreML-ARKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE85734D1F9D179100D73806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE85734F1F9D179100D73806 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		AE85734C1F9D179100D73806 /* Gesture-Recognition-101-CoreML-ARKit */ = {
 			isa = PBXGroup;
 			children = (
+				A14795032176B7EA0064F642 /* ok_model.mlmodel */,
 				AE85734D1F9D179100D73806 /* AppDelegate.swift */,
 				AE85734F1F9D179100D73806 /* art.scnassets */,
 				AE8573511F9D179100D73806 /* ViewController.swift */,
@@ -102,6 +105,7 @@
 				TargetAttributes = {
 					AE8573491F9D179100D73806 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14795042176B7EA0064F642 /* ok_model.mlmodel in Sources */,
 				AE8573521F9D179100D73806 /* ViewController.swift in Sources */,
 				AE85734E1F9D179100D73806 /* AppDelegate.swift in Sources */,
 				AE8573651F9D206800D73806 /* example_5s0_hand_model.mlmodel in Sources */,
@@ -283,13 +288,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8KS4DU4Y2K;
+				DEVELOPMENT_TEAM = 33BWA4SWQK;
 				INFOPLIST_FILE = "Gesture-Recognition-101-CoreML-ARKit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.emerging-interactions.Gesture-Recognition-101-CoreML-ARKit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dius.signer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -299,13 +304,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8KS4DU4Y2K;
+				DEVELOPMENT_TEAM = 33BWA4SWQK;
 				INFOPLIST_FILE = "Gesture-Recognition-101-CoreML-ARKit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.emerging-interactions.Gesture-Recognition-101-CoreML-ARKit";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dius.signer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
