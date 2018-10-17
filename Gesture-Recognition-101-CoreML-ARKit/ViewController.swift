@@ -42,7 +42,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // --- ML & VISION ---
         
         // Setup Vision Model
-        guard let selectedModel = try? VNCoreMLModel(for: ok_model().model) else {
+        guard let selectedModel = try? VNCoreMLModel(for: coffe_model().model) else {
             fatalError("Could not load model. Ensure model has been drag and dropped (copied) to XCode Project. Also ensure the model is part of a target (see: https://stackoverflow.com/questions/45884085/model-is-not-part-of-any-target-add-the-model-to-a-target-to-enable-generation ")
         }
         
@@ -176,7 +176,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             self.textOverlay.text = symbol
             self.subtitle.text = subtitle
-            
         }
     }
     
